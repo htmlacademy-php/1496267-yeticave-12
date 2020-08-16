@@ -109,20 +109,11 @@ $products = [
             <h2>Открытые лоты</h2>
         </div>
     <?php
-        $r = rand (0.0, 10000.99);
-        function form_price($r)
-            {
-                if ($r < 1000)
-                    {
-                    echo ceil($r) . " ₽";
-                    }   
-                else
-                    {
-                    $f = ceil($r);
-                    echo number_format($f, 2, '.', ' ') . " ₽";
-                    } 
-
-            }
+        function form_price($number)
+        {
+            return ($number < 1000 ? ceil($number) : number_format(ceil($number), 2, '.', ' ') ). " ₽";
+        }
+            
     ?>
         <ul class="lots__list">
             <!--заполните этот список из массива с товарами-->
